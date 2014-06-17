@@ -135,7 +135,7 @@ Function WriteLog
  	If ($LogFile -and $LogResults) {"$strOutPut" | out-file -filepath $LogFile -append}
 } #END WriteLog
 
-Function WriteTerminal
+Function Write-Terminal
 {
 <#
 .SYNOPSIS
@@ -166,7 +166,7 @@ Function WriteTerminal
 		default		{ write-host $strOut }		
 	}
 	If ($LogResults) {WriteLog $strOut}
-} #END WriteTerminal
+} #END Write-Terminal
 
 Function LogError
 {
@@ -190,11 +190,11 @@ Function LogError
 	)  
   	Process
 	{
-		WriteTerminal "ERR: An error has occurred [$ErrorDesc]." 
+		Write-Terminal "ERR: An error has occurred [$ErrorDesc]." 
 		#If $ExitGracefully = True then write to log file and exit script
     	If ($ExitGracefully -eq $True)
 		{
-      		WriteTerminal "INFO: Exiting Gracefully"
+      		Write-Terminal "INFO: Exiting Gracefully"
       		Break
     	}
 	}
@@ -225,7 +225,7 @@ Function FunctionTemplate
   	Begin
 	{
     	$getFunctionName = '{0}' -f $MyInvocation.MyCommand
-		WriteTerminal "INFO: Function $getFunctionName started." 
+		Write-Terminal "INFO: Function $getFunctionName started." 
  	}  
   	Process
 	{
@@ -243,7 +243,7 @@ Function FunctionTemplate
 	{
     	If($?)
 		{			
-		 	WriteTerminal "INFO: Execution of function $getFunctionName completed successfully."   
+		 	Write-Terminal "INFO: Execution of function $getFunctionName completed successfully."   
     	}
   	}
 }
@@ -266,7 +266,7 @@ Function MAIN
 		CLS
 		# Display Header
 		DisplayHeader
-		WriteTerminal "INFO: Starting '$sName' - '$sScriptVersion'"
+		Write-Terminal "INFO: Starting '$sName' - '$sScriptVersion'"
 	}  
 	Process
 	{
@@ -311,7 +311,7 @@ switch ($strAction)
 	{
 		If($?)
 		{
-		    WriteTerminal "INFO: Execution of $sName completed successfully."
+		    Write-Terminal "INFO: Execution of $sName completed successfully."
 		}
 	}
 	}
