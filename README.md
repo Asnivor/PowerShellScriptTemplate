@@ -9,5 +9,5 @@ Basic template for starting PowerShell projects. Much of this code is borrowed f
 Original code taken, then modified from:
 
 http://9to5it.com/powershell-script-template/
-http://technet.microsoft.com/en-us/magazine/hh360993.aspx
 http://blogs.msdn.com/b/canberrapfe/archive/2011/08/21/powershell-script-template-amp-out-line-logging-function-to-help-get-you-started.aspx?Redirected=true
+http://technet.microsoft.com/en-us/magazine/hh360993.aspx
