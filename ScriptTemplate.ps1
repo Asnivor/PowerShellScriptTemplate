@@ -8,8 +8,11 @@
 .DESCRIPTION
   			<Script Description>
   
-.PARAMETER	-action		
-    		Specific action that will be performed. 
+.PARAMETER	[string]action		
+    		Specific action that will be performed.
+
+.PARAMETER	[bool]LogResults		
+    		Default is $true. Set to $false to disables logging to file 
  
 .INPUTS
 			<External files or sources that script needs>
@@ -188,7 +191,7 @@ Function LogError
   	Process
 	{
 		WriteTerminal "ERR: An error has occurred [$ErrorDesc]." 
-		#If $ExitGracefully = True then run Log-Finish and exit script
+		#If $ExitGracefully = True then write to log file and exit script
     	If ($ExitGracefully -eq $True)
 		{
       		WriteTerminal "INFO: Exiting Gracefully"
